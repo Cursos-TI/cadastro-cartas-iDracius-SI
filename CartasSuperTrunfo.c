@@ -8,12 +8,11 @@ int main() {
     // Área para definição das variáveis para armazenar as propriedades das cidades
 char estado1, estado2;
 char cidade1_estado1 [50], cidade1_estado2 [50];
-char codigo_cidade1_estado1 [10], codigo_cidade1_estado2 [10];
-int população_cidade1, população_cidade2;
-float area_cidade1, area_cidade2;
-float pib_cidade1, pib_cidade2;
-int ponto_turistico1, ponto_turistico2;
-
+char codigo_cidade1_estado1 [10] = "A01", codigo_cidade1_estado2 [10] = "B01";
+int população_cidade1 = 2, população_cidade2 = 2;
+float area_cidade1 = 105.4, area_cidade2 = 47.87;
+float pib_cidade1 = 3.16, pib_cidade2 = 89.5;
+int ponto_turistico1 = 17, ponto_turistico2 = 10;
 
 
   // ÀREA PARA ENTRADA DE DADOS
@@ -28,22 +27,6 @@ printf("Nome da Cidade:\n");
 scanf(" %49[^\n]", cidade1_estado1);
 
 
-    printf("Codigo da Cidade:\n");
-    scanf("%s", codigo_cidade1_estado1);
-
-
-printf("Insira abaixo a população:\n");
-scanf("%d", &população_cidade1);
-
-
-    printf("Insira o PIB:\n");
-    scanf("%f", &pib_cidade1);
-
-
-printf("Numero de pontos turísticos:\n");
-scanf("%d", &ponto_turistico1);
-printf("\n");
-
 printf("carta 1 registrada com sucesso!\n");
 printf("INSIRA AS INFORMAÇÔES DA CARTA 2:\n");
 printf("\n");
@@ -55,23 +38,6 @@ scanf(" %c", &estado2);
 
     printf("Nome da Cidade:\n");
     scanf(" %49[^\n]", cidade1_estado2);
-
-
-printf("Codigo da Cidade:\n");
-scanf("%s", codigo_cidade1_estado2);
-
-
-    printf("Insira abaixo a população:\n");
-    scanf("%d", &população_cidade2);
-
-
-printf("Insira o PIB:\n");
-scanf("%f", &pib_cidade2);
-
-
-    printf("Numero de pontos turísticos:\n");
-    scanf("%d", &ponto_turistico2);
-
   printf("\n");
 
     // Área para exibição dos dados da cidade
@@ -88,8 +54,9 @@ printf("\n");
 printf("Estado: %c\n", estado1);
 printf("Cidade: %s\n", cidade1_estado1);
 printf("Codigo: %s\n", codigo_cidade1_estado1);
-printf("População: %d\n", população_cidade1);
-printf("PIB: %.2f bilhões de Reais\n", pib_cidade1);
+printf("População: %d milhões de habitantes\n", população_cidade1);
+printf("Àrea da cidade: %.2f km²\n", area_cidade1);
+printf("PIB: UR$ %.2f trilhões\n", pib_cidade1);
 printf("Pontos turísticos: %d\n", ponto_turistico1);
 
 printf("\n");
@@ -99,7 +66,8 @@ printf("\n");
 printf("Estado: %c\n", estado2);
 printf("Cidade: %s\n", cidade1_estado2);
 printf("Codigo: %s\n", codigo_cidade1_estado2);
-printf("População: %d\n", população_cidade2);
+printf("População: %d milhões de habitantes\n", população_cidade2);
+printf("Àrea da cidade %.2f km²\n", area_cidade2);
 printf("PIB: %.2f bilhões de reais\n", pib_cidade2);
 printf("Pontos turísticos: %d\n", ponto_turistico2);
 
