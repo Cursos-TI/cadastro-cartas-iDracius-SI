@@ -1,76 +1,132 @@
 #include <stdio.h>
 
 // Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das cartas
+// Tema 2
+
+/*
+Primeiramente é feito a organização das cartas, com o uso de "struct";
+Em seguida Enviamos a mensagem para que o usuário insira os dados da primeira carta;
+È feito a entrada de dados através da interação com o usuário utilizando "printf" e "scanf";
+A densidade populacional e o pib per capita é calculada utilizando conversao implicita;
+Recebemos os dados da segunda carta da mesma forma que é feito na carta 1;
+Os dados das cartas são exibidos junto com o resultado da media calculada;
+A exibição dos dados da carta é feita segundo as informações que o usuário colocou.); 
+*/
+
+struct Carta {
+    char estado;
+    char cidade[50];
+    char codigo[10];
+    int populacao;
+    float area;
+    float pib;
+    int pontos_turisticos;
+    float densidade_populacional;
+    float pib_capita;
+};
 
 int main() {
-  
-    // Área para definição das variáveis para armazenar as propriedades das cidades
-char estado1, estado2;
-char cidade1_estado1 [50], cidade1_estado2 [50];
-char codigo_cidade1_estado1 [10] = "A01", codigo_cidade1_estado2 [10] = "B01";
-int população_cidade1 = 2, população_cidade2 = 2;
-float area_cidade1 = 105.4, area_cidade2 = 47.87;
-float pib_cidade1 = 3.16, pib_cidade2 = 89.5;
-int ponto_turistico1 = 17, ponto_turistico2 = 10;
 
+    struct Carta franca;
+    struct Carta brasil;
 
-  // ÀREA PARA ENTRADA DE DADOS
+    // ---------------- CARTA 1 ----------------
+    // --------------Entrada de dados--------------
 
-  // (Carta 1)
-    printf("INSIRA AS INFORMAÇÔES DA CARTA 1:\n");
+    printf("***INSIRA AS INFORMAÇÕES DA CARTA 1***\n\n");
+
+    printf("País: França\n");
+
     printf("Estado:\n");
-    scanf(" %c", &estado1);
-
-
-printf("Nome da Cidade:\n");
-scanf(" %49[^\n]", cidade1_estado1);
-
-
-printf("carta 1 registrada com sucesso!\n");
-printf("INSIRA AS INFORMAÇÔES DA CARTA 2:\n");
-printf("\n");
-
-    // (Carta 2)
-printf("Estado:\n");
-scanf(" %c", &estado2);
-
+    scanf(" %c", &franca.estado);
 
     printf("Nome da Cidade:\n");
-    scanf(" %49[^\n]", cidade1_estado2);
-  printf("\n");
+    scanf(" %49[^\n]", franca.cidade);
 
-    // Área para exibição dos dados da cidade
-    printf("carta 2 registrada com sucesso!\n");
-    printf("\n");
+    printf("Código da carta:\n");
+    scanf("%s", franca.codigo);
 
-printf("EXIBIÇÂO DAS CARTAS\n");
-printf("\n");
+    printf("População total:\n");
+    scanf("%d", &franca.populacao);
 
+    printf("Área da cidade (km²):\n");
+    scanf("%f", &franca.area);
 
-    // (CARTA 1)
-    printf("Carta1:\n");
+    printf("PIB:\n");
+    scanf("%f", &franca.pib);
 
-printf("Estado: %c\n", estado1);
-printf("Cidade: %s\n", cidade1_estado1);
-printf("Codigo: %s\n", codigo_cidade1_estado1);
-printf("População: %d milhões de habitantes\n", população_cidade1);
-printf("Àrea da cidade: %.2f km²\n", area_cidade1);
-printf("PIB: UR$ %.2f trilhões\n", pib_cidade1);
-printf("Pontos turísticos: %d\n", ponto_turistico1);
+    printf("Número de pontos turísticos:\n");
+    scanf("%d", &franca.pontos_turisticos);
 
-printf("\n");
+    printf("\nCarta 1 registrada com sucesso!\n");
 
-    // (CARTA 2)
-    printf("Carta2:\n");
-printf("Estado: %c\n", estado2);
-printf("Cidade: %s\n", cidade1_estado2);
-printf("Codigo: %s\n", codigo_cidade1_estado2);
-printf("População: %d milhões de habitantes\n", população_cidade2);
-printf("Àrea da cidade %.2f km²\n", area_cidade2);
-printf("PIB: %.2f bilhões de reais\n", pib_cidade2);
-printf("Pontos turísticos: %d\n", ponto_turistico2);
+    // Calculo Densidade Populacional e PIB per Capita
+    franca.densidade_populacional = franca.populacao / franca.area;
+    franca.pib_capita = (franca.pib * 1000000000) / franca.populacao;
 
 
-return 0;
-} 
+    // ---------------- CARTA 2 ----------------
+    // -------------Entrada de dados--------------
+
+    printf("***INSIRA AS INFORMAÇÕES DA CARTA 2***\n\n");
+
+    printf("País: Brasil\n");
+
+    printf("Estado:\n");
+    scanf(" %c", &brasil.estado);
+
+    printf("Nome da Cidade:\n");
+    scanf(" %49[^\n]", brasil.cidade);
+
+    printf("Código da carta:\n");
+    scanf("%s", brasil.codigo);
+
+    printf("População total:\n");
+    scanf("%d", &brasil.populacao);
+
+    printf("Área da cidade (km²):\n");
+    scanf("%f", &brasil.area);
+
+    printf("PIB:\n");
+    scanf("%f", &brasil.pib);
+
+    printf("Número de pontos turísticos:\n");
+    scanf("%d", &brasil.pontos_turisticos);
+
+    //Calculo Densidade Populacional e PIB per Capita
+    brasil.densidade_populacional =  brasil.populacao / brasil.area;
+    brasil.pib_capita = (brasil.pib * 1000000000) /  brasil.populacao;
+
+    printf("\nCarta 2 registrada com sucesso!\n");
+
+
+    // ----------- EXIBIÇÃO DAS CARTAS -----------
+
+    printf("===== EXIBIÇÃO DAS CARTAS =====\n\n");
+
+    printf("Carta 1 - FRANÇA\n");
+    printf("Estado: %c\n", franca.estado);
+    printf("Cidade: %s\n", franca.cidade);
+    printf("Código: %s\n", franca.codigo);
+    printf("População: %d\n", franca.populacao);
+    printf("Área: %.2f km²\n", franca.area);
+    printf("PIB: %.1f trilhões\n", franca.pib);
+    printf("Pontos turísticos: %d\n", franca.pontos_turisticos);
+    printf("Densidade Populacional: %.2f hab/km²\n", franca.densidade_populacional);
+    printf("PIB per Capita: %.2f reais\n\n", franca.pib_capita);
+
+    
+
+    printf("Carta 2 - BRASIL\n");
+    printf("Estado: %c\n", brasil.estado);
+    printf("Cidade: %s\n", brasil.cidade);
+    printf("Código: %s\n", brasil.codigo);
+    printf("População: %d\n", brasil.populacao);
+    printf("Área: %.2f km²\n", brasil.area);
+    printf("PIB: %.2f bilhões de reais\n", brasil.pib);
+    printf("Pontos turísticos: %d\n", brasil.pontos_turisticos);
+    printf("Densidade Populacional: %.2f hab/km²\n", brasil.densidade_populacional);
+    printf("PIB per Capita: %.2f reais\n", brasil.pib_capita);
+
+    return 0;
+}
